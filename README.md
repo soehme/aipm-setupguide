@@ -62,14 +62,10 @@ Voraussetzung: Node.js 18 oder neuer (`node --version` zum Prüfen).
 
 ### API-Zugang einrichten
 
-Claude Code braucht einen Zugang zu Anthropic. Dafür gibt es zwei Wege:
+Claude Code braucht einen Zugang zu Anthropic. Beim ersten Start führt Claude Code dich durch ein Setup und fragt nach deinem Zugang. Dafür gibt es zwei Wege:
 
 1. **Claude Subscription** (empfohlen für Einzelpersonen) -- Melde dich bei claude.ai an und wähle ein Abo.
-2. **API Key** (empfohlen für Unternehmen) -- Dein Unternehmen stellt dir einen API Key bereit. Trage ihn so ein:
-
-```
-export ANTHROPIC_API_KEY="dein-key-hier"
-```
+2. **API Key** (empfohlen für Unternehmen) -- Dein Unternehmen stellt dir einen API Key bereit.
 
 > Frag bei deinem Unternehmen nach, welchen Zugang du nutzen sollst, und richte ihn **vor dem Training** ein.
 
@@ -187,9 +183,9 @@ In deinem `~/aipm`-Ordner findest du:
 - `leihsdir/` -- Beispieldaten für Übungen
 
 Schau gerne auch schonmal diese Dateien an, um etwas besser zu verstehen, was du gerade eingerichtet hast:
-1. [[obsidian-basics]]
-2. [[markdown-basics]]
-3. [[claudecode-basics]]
-4. [[atsign]]
+1. [Obsidian Basics](help/obsidian-basics.md)
+2. [Markdown Basics](help/markdown-basics.md)
+3. [Claude Code Basics](help/claudecode-basics.md)
+4. [Das @-Zeichen in Claude Code](help/atsign.md)
 
 Bei Fragen melde dich gerne vor dem Training.
