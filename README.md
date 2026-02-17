@@ -1,8 +1,10 @@
 # AIPM Setup Guide
 
-Willkommen! Diese Anleitung hilft dir, deine Arbeitsumgebung für das Training einzurichten. Du brauchst **Claude Code** (ein KI-Assistent im Terminal) und **Obsidian** (ein komfortabler Editor für Textdateien).
+Willkommen! Diese Anleitung hilft dir, deine Arbeitsumgebung für das Training einzurichten. Du brauchst **Claude Code** (ein KI-Assistent im Terminal) und **Obsidian** (ein komfortabler Editor für Textdateien im Markdown-Format).
 
 Plane ca. 30 Minuten ein.
+
+![Die fertig eingerichtete Arbeitsumgebung: Obsidian mit Dateibrowser und Claude Code im Terminal](attachments/eingerichtete_arbeitsumgebung.png)
 
 ---
 
