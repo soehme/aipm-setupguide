@@ -30,8 +30,14 @@ mkdir $HOME\aipm
 
 Klone das Repository in deinen neuen Ordner:
 
+**Mac (Terminal):**
 ```
 git clone https://github.com/soehme/aipm-setupguide ~/aipm
+```
+
+**Windows (PowerShell):**
+```
+git clone https://github.com/soehme/aipm-setupguide $HOME\aipm
 ```
 
 Danach findest du in `~/aipm` mehrere Beispieldateien und Ordner, die wir im Training nutzen.
@@ -148,6 +154,9 @@ Damit kannst du ein Terminal direkt in Obsidian öffnen -- dort läuft dann Clau
 1. In Community Plugins auf **"Browse"** klicken
 2. Nach **"Terminal"** suchen
 3. **"Install"** und dann **"Enable"** klicken
+4. Verlasse diesen Dialog der Community Plugins
+5. Öffne die Einstellungen von Terminal (unter Community Plugins -> Terminal -> Zahnrad-Symbol)
+6. Setze "New instance behaviour" auf "New vertical split"
 
 ### Plugin 2: BRAT
 
@@ -169,10 +178,46 @@ Dieses Plugin zeigt versteckte Dateien und Ordner (die mit `.` beginnen) im Date
 
 > **Hinweis:** Falls dein Vault sehr große versteckte Ordner enthält (z.B. `.git` mit vielen Dateien), kann Obsidian kurz langsamer werden.
 
-### Test: Alles eingerichtet?
 
-- Öffne ein Terminal in Obsidian (Command Palette: `Cmd+P`, dann "terminal current integrated" tippen)
-- Prüfe, ob du den Ordner `.versteckterOrdner` im Dateibrowser als Unterordner von `help` siehst (Show Hidden Files Plugin)
+---
+
+## Schritt 5: Test–alles eingerichtet
+
+Prüfe, ob alle Komponenten funktionieren:
+
+- **Obsidian:** Zeigt deinen `~/aipm` Vault mit allen Dateien an
+- **Versteckte Dateien:** Der Ordner `.versteckterOrdner` ist unter `help/` sichtbar
+- **Terminal Plugin:** Lässt sich in Obsidian öffnen (Command Palette: `Cmd+P` (Mac) bzw. `Ctrl+P` (Windows), dann "terminal root integrated")
+- **Claude Code:** Starte `claude` im Terminal und stelle eine Testfrage ("was ist 2+2?")
+
+> **Tipp:** In deinem `~/aipm`-Ordner findest du Hilfsdateien unter `help/`, die dir beim Start mit Markdown, Obsidian und Claude Code helfen.
+
+---
+
+## Schritt 6: Git-Verzeichnis entfernen
+
+Als letzten Schritt entfernen wir die Git-Verbindung aus dem `~/aipm`-Ordner. So wird er zu einem normalen Arbeitsordner.
+
+**Mac/Linux (Terminal):**
+```
+rm -rf ~/aipm/.git
+```
+
+**Windows (PowerShell):**
+```
+Remove-Item -Recurse -Force ~/aipm/.git
+```
+
+### Test: Git-Verbindung gekappt?
+
+Wechsle in deinem Terminal in den `~/aipm`-Ordner und führe aus:
+
+```
+cd ~/aipm
+git status
+```
+
+Du solltest eine Fehlermeldung wie `"fatal: not a git repository"` sehen. Das ist gewünscht–`~/aipm` ist jetzt ein normaler Arbeitsordner.
 
 ---
 
@@ -181,10 +226,10 @@ Dieses Plugin zeigt versteckte Dateien und Ordner (die mit `.` beginnen) im Date
 Super, du bist eingerichtet. Freu dich aufs Training!
 
 In deinem `~/aipm`-Ordner findest du:
-- `help/` -- Hilfsdateien zu Markdown, Obsidian und Claude Code
-- `leihsdir/` -- Beispieldaten für Übungen
+- `help/`–Hilfsdateien zu Markdown, Obsidian und Claude Code
+- `leihsdir/`–Beispieldaten für Übungen
 
-Schau gerne auch schonmal diese Dateien an, um etwas besser zu verstehen, was du gerade eingerichtet hast:
+Schau gerne auch schonmal in Obsidian die Dateien im `help/` Ordner an, um etwas besser zu verstehen, was du gerade eingerichtet hast:
 1. [Obsidian Basics](../help/obsidian-basics.md)
 2. [Markdown Basics](../help/markdown-basics.md)
 3. [Claude Code Basics](../help/claudecode-basics.md)
