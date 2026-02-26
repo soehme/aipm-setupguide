@@ -175,6 +175,7 @@ Dieses Plugin zeigt versteckte Dateien und Ordner (die mit `.` beginnen) im Date
 3. Füge diese URL ein: `https://github.com/polyipseity/obsidian-show-hidden-files`
 4. Klicke **"Add Plugin"**
 5. Aktiviere das Plugin unter Community Plugins
+6. Starte Obsidian neu (Menü: Quit, dann erneut öffnen), damit versteckte Ordner angezeigt werden
 
 > **Hinweis:** Falls dein Vault sehr große versteckte Ordner enthält (z.B. `.git` mit vielen Dateien), kann Obsidian kurz langsamer werden.
 
