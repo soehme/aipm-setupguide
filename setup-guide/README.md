@@ -157,6 +157,10 @@ Damit kannst du ein Terminal direkt in Obsidian öffnen -- dort läuft dann Clau
 4. Verlasse diesen Dialog der Community Plugins
 5. Öffne die Einstellungen von Terminal (unter Community Plugins -> Terminal -> Zahnrad-Symbol)
 6. Setze "New instance behaviour" auf "New vertical split"
+7. Setze "Default Profile" auf das passende integrierte Profil für dein Betriebssystem:
+   - **Mac:** `darwinIntegratedDefault`
+   - **Windows:** `win32IntegratedDefault`
+   - **Linux:** `linuxIntegratedDefault`
 
 ### Plugin 2: BRAT
 
@@ -188,8 +192,10 @@ Prüfe, ob alle Komponenten funktionieren:
 
 - **Obsidian:** Zeigt deinen `~/aipm` Vault mit allen Dateien an
 - **Versteckte Dateien:** Der Ordner `.versteckterOrdner` ist unter `help/` sichtbar
-- **Terminal Plugin:** Lässt sich in Obsidian öffnen (Command Palette: `Cmd+P` (Mac) bzw. `Ctrl+P` (Windows), dann "terminal root integrated")
+- **Terminal Plugin:** Lässt sich in Obsidian öffnen (Command Palette: `Cmd+P` (Mac) bzw. `Ctrl+P` (Windows), dann "Terminal default")
 - **Claude Code:** Starte `claude` im Terminal und stelle eine Testfrage ("was ist 2+2?")
+
+Gibt es noch Fehler? Schau mal in [troubleshooting.md](troubleshooting.md) nach oder melde dich bei mir!
 
 > **Tipp:** In deinem `~/aipm`-Ordner findest du Hilfsdateien unter `help/`, die dir beim Start mit Markdown, Obsidian und Claude Code helfen.
 
@@ -234,6 +240,5 @@ Schau gerne auch schonmal in Obsidian die Dateien im `help/` Ordner an, um etwas
 1. [Obsidian Basics](../help/obsidian-basics.md)
 2. [Markdown Basics](../help/markdown-basics.md)
 3. [Claude Code Basics](../help/claudecode-basics.md)
-4. [Das @-Zeichen in Claude Code](../help/atsign.md)
 
 Bei Fragen melde dich gerne vor dem Training.
