@@ -62,5 +62,35 @@ where python
    - Mac: `darwinIntegratedDefault`
    - Windows: `win32IntegratedDefault`
    - Linux: `linuxIntegratedDefault`
-3. Trage unter **"Python executable"** den Pfad aus Schritt 3 ein
+3. Trage unter **"Python executable"** den Pfad aus Schritt 3 ein -- inklusive `python.exe` am Ende, z.B. `C:\Python312\python.exe`
 4. Schließe die Einstellungen und öffne ein neues Terminal
+
+Funktioniert es immer noch nicht? Dann weiter mit Plan B.
+
+## Plan B (Windows): Claudian statt Terminal-Plugin
+
+Wenn das Terminal-Plugin auf Windows nicht zuverlässig funktioniert, ist Claudian eine Alternative: ein Obsidian-Plugin, das Claude Code direkt als Chat-Interface in Obsidian einbettet -- ohne Terminal.
+
+**1. Claudian via BRAT installieren:**
+
+1. Öffne die BRAT-Einstellungen (Community Plugins -> BRAT -> Zahnrad-Symbol)
+2. Klicke **"Add Beta plugin"**
+3. Füge diese URL ein: `https://github.com/YishenTu/claudian`
+4. Klicke **"Add Plugin"**
+5. Aktiviere Claudian unter Community Plugins
+
+**2. Claudian einrichten:**
+
+1. Öffne die Claudian-Einstellungen (Community Plugins -> Claudian -> Zahnrad-Symbol)
+2. Scrolle ganz nach unten zu **"Advanced"**
+3. Aktiviere **"Enable bash mode (!)"**
+
+**3. Claudian starten:**
+
+1. Klicke auf das Roboter-Symbol (🤖) in der linken Symbolleiste
+2. Stelle oben im Chat-Fenster ein:
+   - Modell: **Sonnet**
+   - Thinking: **Medium**
+   - Modus: von **YOLO** auf **Safe** umstellen
+
+> **Hinweis:** Im Safe-Modus fragt Claudian vor Dateiänderungen nach -- empfehlenswert für den Einstieg.
