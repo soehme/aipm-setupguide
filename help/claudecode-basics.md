@@ -31,10 +31,26 @@ Tippe einfach deine Frage oder Aufgabe ein:
 
 | Befehl | Beschreibung |
 |--------|-------------|
-| `/help` | Hilfe anzeigen |
+| `/help` | Alle Befehle anzeigen |
 | `/exit` | Claude Code beenden |
-| `/clear` | Bisherigen Gesprächsverlauf löschen |
-| `/status` | Aktuellen Status und Authentifizierung anzeigen |
+| `/clear` | Gesprächsverlauf löschen -- nützlich, wenn Claude "verwirrt" wirkt |
+| `/compact` | Kontext zusammenfassen, wenn das Gespräch sehr lang wird |
+| `/model` | Modell wechseln (z.B. auf Opus oder Haiku) |
+| `/cost` | Verbrauchte Tokens und Kosten der aktuellen Session anzeigen |
+| `/status` | Auth-Status und aktuelle Einstellungen prüfen |
+
+## Dateien und URLs mit @ einbinden
+
+Mit `@` kannst du Dateien oder Webseiten direkt in deinen Prompt einbinden:
+
+```
+> @help/markdown-basics.md -- erkläre mir die wichtigsten Formatierungen
+> @https://example.com/artikel -- fasse diesen Artikel zusammen
+```
+
+Claude liest den Inhalt dann automatisch mit. Das ist nützlicher als "schau mal in die Datei X", weil Claude den Kontext direkt bekommt.
+
+> **Tipp:** Nach dem `@` kannst du den Dateinamen tippen und mit Tab ergänzen lassen.
 
 ## Tipps
 
