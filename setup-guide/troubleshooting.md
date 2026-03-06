@@ -2,13 +2,16 @@
 
 ## Terminal zeigt einen Python-Fehler
 
-Wenn beim Öffnen eines Terminals in Obsidian folgende Meldung erscheint:
+Wenn beim Öffnen eines Terminals in Obsidian eine der folgenden Meldungen erscheint:
 
+```
+Terminal resizer exited unexpectedly: 9009
+```
 ```
 ImportError: cannot import name 'Self' from 'typing' (…/python3.9/typing.py)
 ```
 
-...ist die genutzte Python-Version zu alt. Das Terminal-Plugin benötigt Python 3.10 oder neuer.
+...fehlt Python entweder ganz, oder die installierte Version ist zu alt. Das Terminal-Plugin benötigt Python 3.10 oder neuer. Außerdem öffnet sich möglicherweise ein separates schwarzes Konsolenfenster -- das verschwindet nach dem Fix.
 
 **1. Aktuelle Version prüfen:**
 
@@ -36,7 +39,7 @@ Alternativ: [python.org/downloads](https://www.python.org/downloads/)
 winget install Python.Python.3.13
 ```
 
-Alternativ: [python.org/downloads](https://www.python.org/downloads/)
+Alternativ: [python.org/downloads](https://www.python.org/downloads/) -- beim Installer unbedingt **"Add Python to PATH"** ankreuzen.
 
 **3. Pfad zur neuen Python-Installation ermitteln:**
 
