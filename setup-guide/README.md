@@ -123,6 +123,22 @@ brew install --cask obsidian
 **Files & Links:**
 - "Default location for new attachments" auf **"In subfolder under current folder"** setzen
 - Subfolder name: `attachments`
+- "Show all file types" aktivieren — damit zeigt der Dateibrowser nicht nur Markdown-Dateien, sondern alle Dateitypen an
+
+**Appearance:**
+- "Inline title" deaktivieren — sonst wird der Dateiname doppelt angezeigt (im Tab und nochmal groß im Editor)
+- Unter **"CSS snippets"** auf das Ordner-Symbol klicken, um den Snippet-Ordner zu öffnen
+- Dort eine neue Datei `show-extensions.css` anlegen mit folgendem Inhalt:
+
+```css
+.nav-file-title-content::after {
+  content: ".md";
+  opacity: 0.5;
+}
+```
+
+- Zurück in Obsidian unter CSS snippets auf das Refresh-Symbol (Pfeile) klicken, damit das neue Snippet erkannt wird
+- Den Snippet **"show-extensions"** aktivieren — damit wird die `.md`-Endung im Dateibrowser sichtbar
 
 ### Oberfläche einrichten
 

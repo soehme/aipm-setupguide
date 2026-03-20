@@ -5,9 +5,10 @@ Claude Code organisiert sich in zwei Ebenen: **global** (gilt für alle Projekte
 ## Übersicht
 
 ```
+~/.claude.json                    ← globale MCP-Server-Konfiguration
 ~/.claude/                        ← globale Ebene (immer aktiv)
 ├── CLAUDE.md                     ← globale Anweisungen für Claude
-├── settings.json                 ← Einstellungen, Berechtigungen & MCP-Server
+├── settings.json                 ← Einstellungen & Berechtigungen
 ├── skills/                       ← eigene Skills
 │   └── mein-skill/
 │       └── SKILL.md
@@ -112,7 +113,7 @@ Beispiele für Plugins: Document Skills (PDF, PPTX, XLSX erstellen), PM-Skills (
 ## MCP-Server (externe Tools)
 
 MCP (Model Context Protocol) erlaubt es, externe Tools an Claude anzubinden -- z.B. Datenbanken, APIs oder andere Anwendungen. Die Konfiguration erfolgt über:
-- `~/.claude/settings.json` unter `mcpServers` -- gilt für alle Projekte (global)
+- `~/.claude.json` unter `mcpServers` -- gilt für alle Projekte (global)
 - `.mcp.json` im Projektordner -- gilt nur für dieses Projekt
 - MCP-Server können auch als Teil von Plugins mitgeliefert werden
 
