@@ -42,6 +42,8 @@ git clone https://github.com/soehme/aipm-setupguide $HOME\aipm
 
 Danach findest du in `~/aipm` mehrere Beispieldateien und Ordner, die wir im Training nutzen.
 
+> **"git" nicht erkannt?** Git ist dann nicht installiert. Entweder Git nachinstallieren ([git-scm.com/download/win](https://git-scm.com/download/win), PowerShell danach neu starten) oder das Repository als ZIP manuell von `https://github.com/soehme/aipm-setupguide` herunterladen (grüner "Code"-Button → "Download ZIP"). Details: [troubleshooting.md](troubleshooting.md)
+
 ---
 
 ## Schritt 2: Claude Code installieren
@@ -67,6 +69,8 @@ brew install --cask claude-code
 npm install -g @anthropic-ai/claude-code
 ```
 Voraussetzung: Node.js 18 oder neuer (`node --version` zum Prüfen).
+
+> **"npm" oder "node" nicht erkannt?** Node.js ist nicht installiert. Download: [nodejs.org/de/download](https://nodejs.org/de/download) -- beim Installer darauf achten, dass **"Add to PATH"** angehakt ist. Danach PowerShell neu starten. Details: [troubleshooting.md](troubleshooting.md)
 
 ### API-Zugang einrichten
 

@@ -1,5 +1,46 @@
 # Troubleshooting
 
+## "git" wird nicht erkannt (Windows)
+
+Die Fehlermeldung `Die Benennung "git" wurde nicht als Name eines Cmdlet erkannt` bedeutet: Git ist auf diesem Computer nicht installiert.
+
+**Option 1: Git installieren (empfohlen)**
+
+1. Lade Git für Windows herunter: [git-scm.com/download/win](https://git-scm.com/download/win)
+2. Installiere Git (alle Standardoptionen übernehmen)
+3. Schließe PowerShell und öffne sie neu
+4. Führe den `git clone`-Befehl aus Schritt 1 nochmal aus
+
+**Option 2: Repository manuell herunterladen (ohne Git)**
+
+Falls du Git nicht installieren möchtest oder kannst:
+
+1. Öffne im Browser: `https://github.com/soehme/aipm-setupguide`
+2. Klicke auf den grünen Button **"Code"** → **"Download ZIP"**
+3. Entpacke die ZIP-Datei (Rechtsklick → Alle extrahieren)
+4. Benenne den entpackten Ordner um zu `aipm`
+5. Verschiebe ihn in dein Home-Verzeichnis: `C:\Users\DeinName\aipm`
+
+---
+
+## "npm" oder "node" wird nicht erkannt (Windows)
+
+Die Fehlermeldung `Die Benennung "npm" wurde nicht als Name eines Cmdlet erkannt` bedeutet: Node.js ist nicht installiert oder noch nicht im PATH registriert.
+
+**Node.js installieren:**
+
+1. Lade Node.js herunter: [nodejs.org/de/download](https://nodejs.org/de/download)
+2. Installiere Node.js -- beim Setup-Assistenten den Haken bei **"Add to PATH"** nicht entfernen
+3. Schließe PowerShell und öffne sie neu
+4. Prüfe die Installation:
+   ```
+   node --version
+   npm --version
+   ```
+5. Führe dann die Claude Code Installation aus Schritt 2 nochmal aus
+
+---
+
 ## Terminal zeigt einen Python-Fehler
 
 Wenn beim Öffnen eines Terminals in Obsidian eine der folgenden Meldungen erscheint:
