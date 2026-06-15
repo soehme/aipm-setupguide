@@ -96,6 +96,20 @@ Typisches Ergebnis bei Homebrew: `/opt/homebrew/bin/python3`
 where python
 ```
 
+Wenn `where python` kein Ergebnis liefert, ist Python nicht im PATH registriert. Ermittle den Pfad dann manuell:
+
+```
+Get-ChildItem "$env:LOCALAPPDATA\Programs\Python" -Filter "python.exe" -Recurse | Select-Object FullName
+```
+
+Typisches Ergebnis bei Python 3.13: `C:\Users\DeinName\AppData\Local\Programs\Python\Python313\python.exe`
+
+Falls das auch leer bleibt, prüfe den systemweiten Installationspfad:
+
+```
+Get-ChildItem "C:\Program Files\Python*" -Filter "python.exe" -Recurse | Select-Object FullName
+```
+
 **4. Pfad im Terminal-Plugin eintragen:**
 
 1. Öffne die Einstellungen des Terminal-Plugins (Community Plugins -> Terminal -> Zahnrad-Symbol)
