@@ -54,71 +54,77 @@ ImportError: cannot import name 'Self' from 'typing' (…/python3.9/typing.py)
 
 ...fehlt Python entweder ganz, oder die installierte Version ist zu alt. Das Terminal-Plugin benötigt Python 3.10 oder neuer. Außerdem öffnet sich möglicherweise ein separates schwarzes Konsolenfenster -- das verschwindet nach dem Fix.
 
-**1. Aktuelle Version prüfen:**
+---
 
-**Mac (Terminal):**
+### Mac
+
+**1. Version prüfen:**
+
 ```
 python3 --version
 ```
 
-**Windows (PowerShell):**
-```
-python --version
-```
+**2. Python aktualisieren (falls nötig):**
 
-**2. Python aktualisieren:**
-
-**Mac (Homebrew):**
 ```
 brew install python3
 ```
 
 Alternativ: [python.org/downloads](https://www.python.org/downloads/)
 
-**Windows:**
-```
-winget install Python.Python.3.13
-```
+---
 
-Alternativ: [python.org/downloads](https://www.python.org/downloads/) -- beim Installer unbedingt **"Add Python to PATH"** ankreuzen.
+### Windows
 
-**3. Pfad zur neuen Python-Installation ermitteln:**
+Auf Windows gibt es zwei häufige Ursachen für den Fehler:
 
-**Mac (Terminal):**
-```
-which python3
-```
+- **App-Ausführungsaliase** -- Windows legt Pseudo-Einträge für `python.exe` und `python3.exe` an, die auf den Microsoft Store verweisen statt auf die echte Installation. Das Terminal-Plugin ruft dann einen Store-Stub auf, der sofort fehlschlägt.
+- **`python3.exe` fehlt** -- Das Terminal-Plugin ruft intern `python3` auf. Windows-Python-Installationen legen aber standardmäßig nur `python.exe` an, kein `python3.exe`.
 
-Typisches Ergebnis bei Homebrew: `/opt/homebrew/bin/python3`
+**1. App-Ausführungsaliase deaktivieren:**
 
-**Windows (PowerShell):**
-```
-where python
-```
+1. Windows-Taste → **Einstellungen → Apps → Erweiterte App-Einstellungen → App-Ausführungsaliase**
+2. Dort beide Einträge ausschalten:
+   - `python.exe`
+   - `python3.exe`
 
-Wenn `where python` kein Ergebnis liefert, ist Python nicht im PATH registriert. Ermittle den Pfad dann manuell:
+**2. `python3.exe` anlegen:**
+
+Falls Python 3.13 bereits installiert ist (prüfen mit `python --version`), kopiere die Datei:
 
 ```
-Get-ChildItem "$env:LOCALAPPDATA\Programs\Python" -Filter "python.exe" -Recurse | Select-Object FullName
+Copy-Item "$env:LOCALAPPDATA\Programs\Python\Python313\python.exe" "$env:LOCALAPPDATA\Programs\Python\Python313\python3.exe" -Force
 ```
 
-Typisches Ergebnis bei Python 3.13: `C:\Users\DeinName\AppData\Local\Programs\Python\Python313\python.exe`
+PowerShell danach schließen und neu öffnen.
 
-Falls das auch leer bleibt, prüfe den systemweiten Installationspfad:
+**3. Installation prüfen:**
 
 ```
-Get-ChildItem "C:\Program Files\Python*" -Filter "python.exe" -Recurse | Select-Object FullName
+where.exe python
+where.exe python3
+python --version
+python3 --version
 ```
 
-**4. Pfad im Terminal-Plugin eintragen:**
+Erwartetes Ergebnis (Pfade mit deinem Benutzernamen):
 
-1. Öffne die Einstellungen des Terminal-Plugins (Community Plugins -> Terminal -> Zahnrad-Symbol)
-2. Gehe zu **"Profiles"** und klicke auf **"Edit"** beim passenden integrierten Profil:
-   - Mac: `darwinIntegratedDefault`
-   - Windows: `win32IntegratedDefault`
-   - Linux: `linuxIntegratedDefault`
-3. Trage unter **"Python executable"** den Pfad aus Schritt 3 ein -- inklusive `python.exe` am Ende, z.B. `C:\Python312\python.exe`
-4. Schließe die Einstellungen und öffne ein neues Terminal
+```
+C:\Users\DeinName\AppData\Local\Programs\Python\Python313\python.exe
+C:\Users\DeinName\AppData\Local\Programs\Python\Python313\python3.exe
+Python 3.13.x
+Python 3.13.x
+```
+
+> Wenn `where.exe python3` weiterhin einen `WindowsApps`-Pfad zuerst anzeigt, ist der Alias noch aktiv oder der Python-Pfad steht zu weit hinten in der PATH-Liste. Dann in den Umgebungsvariablen (Einstellungen → System → Umgebungsvariablen) diese beiden Einträge ganz nach oben schieben:
+> ```
+> C:\Users\DeinName\AppData\Local\Programs\Python\Python313
+> C:\Users\DeinName\AppData\Local\Programs\Python\Python313\Scripts
+> ```
+
+**4. Obsidian neu starten:**
+
+Obsidian komplett schließen -- im Task-Manager prüfen, dass `Obsidian.exe` nicht mehr läuft -- dann neu starten.
 
 Funktioniert es immer noch nicht? Dann weiter mit Plan B.
 
