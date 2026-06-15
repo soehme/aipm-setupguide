@@ -36,8 +36,13 @@ Tippe einfach deine Frage oder Aufgabe ein:
 | `/clear` | Gesprächsverlauf löschen -- nützlich, wenn Claude "verwirrt" wirkt |
 | `/compact` | Kontext zusammenfassen, wenn das Gespräch sehr lang wird |
 | `/model` | Modell wechseln (z.B. auf Opus oder Haiku) |
-| `/cost` | Verbrauchte Tokens und Kosten der aktuellen Session anzeigen |
+| `/usage` | Verbrauchte Tokens und Kosten der aktuellen Session anzeigen |
+| `/context` | Zeigt, wie der aktuelle Kontext belegt ist |
 | `/status` | Auth-Status und aktuelle Einstellungen prüfen |
+| `/skills` | Installierte Skills auflisten |
+| `/reload-skills` | Neu installierte Skills laden |
+| `/plugins` | Installierte Plugins anzeigen und neue installieren |
+| `/reload-plugins` | Neu installierte Plugins laden |
 
 ## Dateien und URLs mit @ einbinden
 
