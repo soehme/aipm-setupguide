@@ -182,24 +182,14 @@ Damit kannst du ein Terminal direkt in Obsidian öffnen -- dort läuft dann Clau
    - **Windows:** `win32IntegratedDefault`
    - **Linux:** `linuxIntegratedDefault`
 
-### Plugin 2: BRAT
-
-BRAT erlaubt die Installation von Plugins, die nicht im offiziellen Verzeichnis stehen.
-
-1. In Community Plugins auf **"Browse"** klicken
-2. Nach **"BRAT"** suchen
-3. **"Install"** und dann **"Enable"** klicken
-
-### Plugin 3: Show Hidden Files (via BRAT)
+### Plugin 2: Show Hidden Files
 
 Dieses Plugin zeigt versteckte Dateien und Ordner (die mit `.` beginnen) im Dateibrowser an.
 
-1. Öffne die Einstellungen von BRAT (unter Community Plugins -> BRAT -> Zahnrad-Symbol)
-2. Klicke **"Add Beta plugin"**
-3. Füge diese URL ein: `https://github.com/polyipseity/obsidian-show-hidden-files`
-4. Klicke **"Add Plugin"**
-5. Aktiviere das Plugin unter Community Plugins
-6. Starte Obsidian neu (Menü: Quit, dann erneut öffnen), damit versteckte Ordner angezeigt werden
+1. In Community Plugins auf **"Browse"** klicken
+2. Nach **"Show Hidden Files"** suchen
+3. **"Install"** und dann **"Enable"** klicken
+4. Starte Obsidian neu (Menü: Quit, dann erneut öffnen), damit versteckte Ordner angezeigt werden
 
 > **Hinweis:** Falls dein Vault sehr große versteckte Ordner enthält (z.B. `.git` mit vielen Dateien), kann Obsidian kurz langsamer werden.
 
