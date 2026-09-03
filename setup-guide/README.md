@@ -83,8 +83,17 @@ Claude Code braucht einen Zugang zu Anthropic. Beim ersten Start führt Claude C
 
 ### Test: Funktioniert alles?
 
-Starte Claude Code:
+Wechsle in den `aipm`-Ordner und starte Claude Code:
+
+**Mac (Terminal):**
 ```
+cd ~/aipm
+claude
+```
+
+**Windows (PowerShell):**
+```
+cd $HOME\aipm
 claude
 ```
 
@@ -94,6 +103,8 @@ Was ist 2 + 2?
 ```
 
 Wenn du eine Antwort bekommst, ist alles eingerichtet. Beende mit `/exit`.
+
+> **Warum im `aipm`-Ordner starten?** Dieser Ordner enthält eine Einstellung, die Claude Code anweist, dich vor jeder Aktion (Datei ändern, Befehl ausführen) um Erlaubnis zu fragen. So siehst du im Training genau, was Claude gerade tut, bevor es passiert. Mehr dazu in [Claude Code Basics](../help/claudecode-basics.md#permission-mode-erlaubnis-fragen).
 
 ---
 

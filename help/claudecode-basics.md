@@ -65,8 +65,16 @@ Claude liest den Inhalt dann automatisch mit. Das ist nützlicher als "schau mal
 - **Geduld:** Manche Antworten dauern ein paar Sekunden -- Claude liest und denkt nach.
 - **Nachfragen:** Wenn die Antwort nicht passt, frag einfach anders oder präziser nach.
 
-## Sicherheit
+## Permission-Mode: Erlaubnis fragen
+
+Claude Code kennt verschiedene Berechtigungs-Modi -- von "fragt vor jeder Aktion" bis "macht einfach". Im `aipm`-Ordner ist der Modus **manual** fest eingestellt (Datei `.claude/settings.json`). Das heißt:
 
 - Claude fragt um Erlaubnis, bevor es Dateien verändert oder Befehle ausführt
-- Du kannst einzelne Aktionen ablehnen
+- Du siehst die geplante Aktion und kannst sie einzeln annehmen oder ablehnen
+
+> **Warum manuell und nicht automatisch?** Neuere Claude-Code-Versionen starten standardmäßig in einem freizügigeren Modus. Für den Einstieg ist es sinnvoll, jede Aktion einzeln zu sehen und zu bestätigen -- so verstehst du, was Claude tut, bevor es etwas tut. Mit `Shift+Tab` kannst du während einer Session zwischen den Modi wechseln, `/permissions` zeigt die aktuelle Einstellung.
+
+## Sicherheit
+
 - Deine Dateien verlassen nicht deinen Computer (nur der Text der Anfrage geht an die API)
+- Änderungen kannst du jederzeit über `git` oder eine Sicherungskopie rückgängig machen
