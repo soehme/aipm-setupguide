@@ -12,8 +12,6 @@ Claude Code organisiert sich in zwei Ebenen: **global** (gilt für alle Projekte
 ├── skills/                       ← eigene Skills
 │   └── mein-skill/
 │       └── SKILL.md
-├── commands/                     ← eigene Slash-Commands
-│   └── meinbefehl.md
 └── plugins/                      ← installierte Plugins
     └── ...
 
@@ -23,11 +21,9 @@ Claude Code organisiert sich in zwei Ebenen: **global** (gilt für alle Projekte
 ├── .mcp.json                     ← MCP-Server für dieses Projekt
 └── .claude/                      ← projektlokale Ebene
     ├── settings.json             ← projektlokale Einstellungen & Berechtigungen
-    ├── skills/                   ← Skills (nur dieses Projekt)
-    │   └── mein-skill/
-    │       └── SKILL.md
-    └── commands/                 ← Slash-Commands (nur dieses Projekt)
-        └── meinbefehl.md
+    └── skills/                   ← Skills (nur dieses Projekt)
+        └── mein-skill/
+            └── SKILL.md
 ```
 
 ## Die wichtigsten Dateien
@@ -71,22 +67,26 @@ Skills können auch weitere Referenzdateien im selben Ordner enthalten (z.B. Vor
 
 Skills können auch über Plugins installiert werden (siehe unten).
 
-### commands/ -- eigene Slash-Commands
+### Skills aufrufen
 
-Einzelne `.md`-Dateien im `commands/`-Ordner werden zu Slash-Commands. Der Dateiname wird zum Befehlsnamen:
+Es gibt zwei Wege, einen Skill zu nutzen:
+
+**Implizit** -- du beschreibst deine Aufgabe ganz normal, und Claude erkennt anhand der `description`, dass ein Skill dazu passt, und nutzt ihn von selbst. Dafür muss die `description` gut sein: Sie soll beschreiben, *wann* der Skill dran ist, nicht nur was er tut.
+
+**Explizit** -- du rufst den Skill direkt beim Namen auf:
 
 ```
-~/.claude/commands/zusammenfassen.md  →  /zusammenfassen  (global)
-.claude/commands/zusammenfassen.md    →  /zusammenfassen  (projektlokal)
+/mein-skill              # eigener Skill
+/plugin-name:skill-name  # Skill aus einem Plugin
 ```
 
-Der Inhalt der Datei ist der Prompt, den Claude bei Aufruf des Befehls ausführt.
+Explizit ist zuverlässiger, implizit ist bequemer. Im Training schauen wir uns beides an.
 
-> **Hinweis:** Für umfangreichere Befehle mit Referenzdateien sind Skills unter `skills/` die bessere Wahl.
+> **Was ist mit Slash-Commands?** Früher gab es dafür einzelne `.md`-Dateien in einem `commands/`-Ordner. Das funktioniert weiterhin, ist für neue Sachen aber nicht mehr der richtige Weg: Skills können dasselbe, nehmen zusätzlich Referenzdateien auf und werden auch von anderen Werkzeugen gelesen. Leg Neues als Skill an.
 
 ## Plugins
 
-Plugins sind **installierbare Pakete**, die Skills, Commands und MCP-Server bündeln. Sie werden über den Plugin-Marketplace verteilt und unter `~/.claude/plugins/` installiert.
+Plugins sind **installierbare Pakete**, die Skills und MCP-Server bündeln. Sie werden über den Plugin-Marketplace verteilt und unter `~/.claude/plugins/` installiert.
 
 Ein Plugin enthält typischerweise:
 

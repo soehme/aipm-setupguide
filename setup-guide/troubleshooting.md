@@ -1,4 +1,6 @@
-# Troubleshooting
+# Troubleshooting (Claude Code und Codex)
+
+Diese Datei sammelt Probleme, die unabhängig vom eingesetzten Tool auftreten -- beim Klonen, bei Node.js und beim Terminal-Plugin in Obsidian. Tool-spezifische Probleme stehen in der Troubleshooting-Datei im Ordner deines Tools (`claude/` bzw. `codex/`).
 
 ## "git" wird nicht erkannt (Windows)
 
@@ -37,7 +39,7 @@ Die Fehlermeldung `Die Benennung "npm" wurde nicht als Name eines Cmdlet erkannt
    node --version
    npm --version
    ```
-5. Führe dann die Claude Code Installation aus Schritt 2 nochmal aus
+5. Führe dann die Installation deines Tools aus Schritt 2 nochmal aus
 
 ---
 
@@ -126,32 +128,40 @@ Python 3.13.x
 
 Obsidian komplett schließen -- im Task-Manager prüfen, dass `Obsidian.exe` nicht mehr läuft -- dann neu starten.
 
-Funktioniert es immer noch nicht? Dann weiter mit Plan B.
+---
 
-## Plan B (Windows): Claudian statt Terminal-Plugin
+## Obsidian-Einstellungen manuell setzen
 
-Wenn das Terminal-Plugin auf Windows nicht zuverlässig funktioniert, ist Claudian eine Alternative: ein Obsidian-Plugin, das Claude Code direkt als Chat-Interface in Obsidian einbettet -- ohne Terminal.
+Der `aipm`-Ordner bringt vier Obsidian-Einstellungen schon mit (sie stehen in `.obsidian/app.json`, `.obsidian/appearance.json` und `.obsidian/snippets/`). Falls sie bei dir nicht greifen -- etwa weil du das Repository als ZIP ohne versteckte Ordner heruntergeladen oder einen anderen Ordner als Vault geöffnet hast -- kannst du sie von Hand setzen.
 
-**1. Claudian via BRAT installieren:**
+Öffne die Einstellungen mit `Cmd+,` (Mac) bzw. `Ctrl+,` (Windows):
 
-1. Öffne die BRAT-Einstellungen (Community Plugins -> BRAT -> Zahnrad-Symbol)
-2. Klicke **"Add Beta plugin"**
-3. Füge diese URL ein: `https://github.com/YishenTu/claudian`
-4. Klicke **"Add Plugin"**
-5. Aktiviere Claudian unter Community Plugins
+**Files & Links:**
+- "Default location for new attachments" auf **"In subfolder under current folder"** setzen
+- Subfolder name: `attachments`
+- "Show all file types" aktivieren -- damit zeigt der Dateibrowser nicht nur Markdown-Dateien, sondern alle Dateitypen an
 
-**2. Claudian einrichten:**
+**Appearance:**
+- "Inline title" deaktivieren -- sonst wird der Dateiname doppelt angezeigt (im Tab und nochmal groß im Editor)
+- Unter **"CSS snippets"** auf das Ordner-Symbol klicken, um den Snippet-Ordner zu öffnen
+- Dort eine neue Datei `show-extensions.css` anlegen mit folgendem Inhalt:
 
-1. Öffne die Claudian-Einstellungen (Community Plugins -> Claudian -> Zahnrad-Symbol)
-2. Scrolle ganz nach unten zu **"Advanced"**
-3. Aktiviere **"Enable bash mode (!)"**
+```css
+.nav-file-title-content::after {
+  content: ".md";
+  opacity: 0.5;
+}
+```
 
-**3. Claudian starten:**
+- Zurück in Obsidian unter CSS snippets auf das Refresh-Symbol (Pfeile) klicken, damit das neue Snippet erkannt wird
+- Den Snippet **"show-extensions"** aktivieren -- damit wird die `.md`-Endung im Dateibrowser sichtbar
 
-1. Klicke auf das Roboter-Symbol (🤖) in der linken Symbolleiste
-2. Stelle oben im Chat-Fenster ein:
-   - Modell: **Sonnet**
-   - Thinking: **Medium**
-   - Modus: von **YOLO** auf **Safe** umstellen
+---
 
-> **Hinweis:** Im Safe-Modus fragt Claudian vor Dateiänderungen nach -- empfehlenswert für den Einstieg.
+## Versteckte Ordner fehlen nach ZIP-Download
+
+Beim Entpacken einer ZIP-Datei lässt Windows Ordner, die mit einem Punkt beginnen, manchmal weg. Dann fehlen `.obsidian` (die vorbereiteten Einstellungen) und `help/.versteckterOrdner` (der Testordner aus dem Setup).
+
+Sauberste Lösung: das Repository stattdessen mit `git clone` holen (siehe oben). Alternativ im Explorer unter **Ansicht → Einblenden → Ausgeblendete Elemente** aktivieren und die fehlenden Ordner aus dem entpackten Archiv nachkopieren.
+
+Funktioniert es immer noch nicht? Dann schau in die Troubleshooting-Datei im Ordner deines Tools (`claude/` bzw. `codex/`) -- dort steht für jedes Tool ein Plan B.

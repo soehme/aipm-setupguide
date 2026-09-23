@@ -1,10 +1,12 @@
-# AIPM Setup Guide
+# AIPM Setup Guide -- Claude Code
 
 Willkommen! Diese Anleitung hilft dir, deine Arbeitsumgebung für das Training einzurichten. Du brauchst **Claude Code** (ein KI-Assistent im Terminal) und **Obsidian** (ein komfortabler Editor für Textdateien im Markdown-Format).
 
 Plane ca. 30 Minuten ein.
 
-![Die fertig eingerichtete Arbeitsumgebung: Obsidian mit Dateibrowser und Claude Code im Terminal](attachments/eingerichtete_arbeitsumgebung.png)
+> **Nutzt ihr Codex statt Claude Code?** Dann nimm den [Setup Guide für Codex](../codex/README.md). Welches Werkzeug bei euch gilt, sagt dir dein Admin.
+
+![Die fertig eingerichtete Arbeitsumgebung: Obsidian mit Dateibrowser und Claude Code im Terminal](../attachments/eingerichtete_arbeitsumgebung.png)
 
 ---
 
@@ -42,11 +44,13 @@ git clone https://github.com/soehme/aipm-setupguide $HOME\aipm
 
 Danach findest du in `~/aipm` mehrere Beispieldateien und Ordner, die wir im Training nutzen.
 
-> **"git" nicht erkannt?** Git ist dann nicht installiert. Entweder Git nachinstallieren ([git-scm.com/download/win](https://git-scm.com/download/win), PowerShell danach neu starten) oder das Repository als ZIP manuell von `https://github.com/soehme/aipm-setupguide` herunterladen (grüner "Code"-Button → "Download ZIP"). Details: [troubleshooting.md](troubleshooting.md)
+> **"git" nicht erkannt?** Git ist dann nicht installiert. Entweder Git nachinstallieren ([git-scm.com/download/win](https://git-scm.com/download/win), PowerShell danach neu starten) oder das Repository als ZIP manuell von `https://github.com/soehme/aipm-setupguide` herunterladen (grüner "Code"-Button → "Download ZIP"). Details: [troubleshooting.md](../troubleshooting.md)
 
 ---
 
 ## Schritt 2: Claude Code installieren
+
+> **Erst zum Admin.** Viele Unternehmen schränken ein, was auf dem Arbeitsrechner installiert werden darf, und geben einen eigenen Weg vor -- ein internes Software-Portal, eine vorbereitete Version oder einen Proxy. Frag vor der Installation nach, wie Claude Code bei euch installiert und angemeldet wird. Die Wege unten sind der Standardfall.
 
 ### Was ist Claude Code?
 
@@ -70,7 +74,7 @@ npm install -g @anthropic-ai/claude-code
 ```
 Voraussetzung: Node.js 18 oder neuer (`node --version` zum Prüfen).
 
-> **"npm" oder "node" nicht erkannt?** Node.js ist nicht installiert. Download: [nodejs.org/de/download](https://nodejs.org/de/download) -- beim Installer darauf achten, dass **"Add to PATH"** angehakt ist. Danach PowerShell neu starten. Details: [troubleshooting.md](troubleshooting.md)
+> **"npm" oder "node" nicht erkannt?** Node.js ist nicht installiert. Download: [nodejs.org/de/download](https://nodejs.org/de/download) -- beim Installer darauf achten, dass **"Add to PATH"** angehakt ist. Danach PowerShell neu starten. Details: [troubleshooting.md](../troubleshooting.md)
 
 ### API-Zugang einrichten
 
@@ -104,11 +108,13 @@ Was ist 2 + 2?
 
 Wenn du eine Antwort bekommst, ist alles eingerichtet. Beende mit `/exit`.
 
-> **Warum im `aipm`-Ordner starten?** Dieser Ordner enthält eine Einstellung, die Claude Code anweist, dich vor jeder Aktion (Datei ändern, Befehl ausführen) um Erlaubnis zu fragen. So siehst du im Training genau, was Claude gerade tut, bevor es passiert. Mehr dazu in [Claude Code Basics](../help/claudecode-basics.md#permission-mode-erlaubnis-fragen).
+> **Warum im `aipm`-Ordner starten?** Dieser Ordner enthält eine Einstellung, die Claude Code anweist, dich vor jeder Aktion (Datei ändern, Befehl ausführen) um Erlaubnis zu fragen. So siehst du im Training genau, was Claude gerade tut, bevor es passiert. Mehr dazu in [Claude Code Basics](../../help/claude/claudecode-basics.md#permission-mode-erlaubnis-fragen).
 
 ---
 
 ## Schritt 3: Obsidian installieren
+
+> **Auch hier gilt:** Wenn du Software nicht selbst installieren darfst, frag deinen Admin nach Obsidian. Manche Unternehmen verteilen es über ein eigenes Portal.
 
 ### Was ist Obsidian?
 
@@ -131,34 +137,25 @@ brew install --cask obsidian
 3. Navigiere zu `~/aipm` und wähle den Ordner aus
 4. Klicke **"Open"**
 
-### Einstellungen vornehmen
+### Einstellungen: schon erledigt
 
-Öffne die Einstellungen mit `Cmd+,` (Mac) bzw. `Ctrl+,` (Windows):
+Ein paar Einstellungen bringt der `aipm`-Ordner bereits mit -- sie gelten automatisch, sobald du ihn als Vault öffnest:
 
-**Files & Links:**
-- "Default location for new attachments" auf **"In subfolder under current folder"** setzen
-- Subfolder name: `attachments`
-- "Show all file types" aktivieren — damit zeigt der Dateibrowser nicht nur Markdown-Dateien, sondern alle Dateitypen an
+- Anhänge landen in einem Unterordner `attachments` neben der jeweiligen Datei
+- Der Dateibrowser zeigt alle Dateitypen an, nicht nur Markdown
+- Die Endung `.md` ist im Dateibrowser sichtbar
+- Der Dateiname steht nicht doppelt im Editor
 
-**Appearance:**
-- "Inline title" deaktivieren — sonst wird der Dateiname doppelt angezeigt (im Tab und nochmal groß im Editor)
-- Unter **"CSS snippets"** auf das Ordner-Symbol klicken, um den Snippet-Ordner zu öffnen
-- Dort eine neue Datei `show-extensions.css` anlegen mit folgendem Inhalt:
-
-```css
-.nav-file-title-content::after {
-  content: ".md";
-  opacity: 0.5;
-}
-```
-
-- Zurück in Obsidian unter CSS snippets auf das Refresh-Symbol (Pfeile) klicken, damit das neue Snippet erkannt wird
-- Den Snippet **"show-extensions"** aktivieren — damit wird die `.md`-Endung im Dateibrowser sichtbar
+> **Nichts davon zu sehen?** Dann hast du vermutlich einen anderen Ordner als Vault geöffnet oder die Dateien fehlen. Die Einstellungen lassen sich von Hand nachziehen: [Obsidian-Einstellungen manuell setzen](../troubleshooting.md#obsidian-einstellungen-manuell-setzen)
 
 ### Oberfläche einrichten
 
 - **Linke Sidebar:** Klicke auf das Ordner-Symbol oben links, um den Dateibrowser zu sehen. Hier siehst du alle Dateien in deinem Vault.
 - **Rechte Sidebar:** Schließe sie mit Klick auf den Pfeil, um mehr Platz zu haben.
+
+So sollte Obsidian danach aussehen:
+
+![Obsidian mit geöffnetem Dateibrowser links und Editor in der Mitte](../attachments/obsidian-oberflaeche.png)
 
 ### Test: Erste Datei erstellen
 
@@ -216,27 +213,33 @@ Prüfe, ob alle Komponenten funktionieren:
 - **Terminal Plugin:** Lässt sich in Obsidian öffnen (Command Palette: `Cmd+P` (Mac) bzw. `Ctrl+P` (Windows), dann "Terminal default")
 - **Claude Code:** Starte `claude` im Terminal und stelle eine Testfrage ("was ist 2+2?")
 
-Gibt es noch Fehler? Schau mal in [troubleshooting.md](troubleshooting.md) nach oder melde dich bei mir!
+Gibt es noch Fehler? Schau in [troubleshooting.md](../troubleshooting.md) (git, Node.js, Terminal-Plugin) oder in [troubleshooting.md für Claude Code](troubleshooting.md) -- oder melde dich bei mir!
 
 > **Tipp:** In deinem `~/aipm`-Ordner findest du Hilfsdateien unter `help/`, die dir beim Start mit Markdown, Obsidian und Claude Code helfen.
 
 ---
 
-## Schritt 6: Git-Verzeichnis entfernen
+## Schritt 6: Aufräumen
 
-Als letzten Schritt entfernen wir die Git-Verbindung aus dem `~/aipm`-Ordner. So wird er zu einem normalen Arbeitsordner.
+Zum Abschluss räumen wir zwei Dinge weg.
+
+**Die Git-Verbindung.** Damit wird `~/aipm` ein normaler Arbeitsordner und niemand überschreibt versehentlich mit `git pull` eigene Änderungen.
+
+**Die Codex-Dateien.** Dieses Repository enthält Anleitungen für zwei Werkzeuge: Claude Code und Codex. Du arbeitest mit Claude Code, also kommen die Codex-Dateien weg -- sonst stehen sie im Dateibrowser herum und stiften Verwirrung.
+
+> **Bevor du das ausführst:** Die folgenden Befehle löschen Ordner endgültig, ohne Papierkorb. Prüfe, dass in den Pfaden wirklich `aipm` steht und du nichts Eigenes in `setup-guide/codex` oder `help/codex` abgelegt hast.
 
 **Mac/Linux (Terminal):**
 ```
-rm -rf ~/aipm/.git
+rm -rf ~/aipm/.git ~/aipm/setup-guide/codex ~/aipm/help/codex
 ```
 
 **Windows (PowerShell):**
 ```
-Remove-Item -Recurse -Force ~/aipm/.git
+Remove-Item -Recurse -Force $HOME\aipm\.git, $HOME\aipm\setup-guide\codex, $HOME\aipm\help\codex
 ```
 
-### Test: Git-Verbindung gekappt?
+### Test: Alles weg?
 
 Wechsle in deinem Terminal in den `~/aipm`-Ordner und führe aus:
 
@@ -245,7 +248,9 @@ cd ~/aipm
 git status
 ```
 
-Du solltest eine Fehlermeldung wie `"fatal: not a git repository"` sehen. Das ist gewünscht–`~/aipm` ist jetzt ein normaler Arbeitsordner.
+Du solltest eine Fehlermeldung wie `"fatal: not a git repository"` sehen. Das ist gewünscht -- `~/aipm` ist jetzt ein normaler Arbeitsordner.
+
+Schau außerdem in Obsidian in den Dateibrowser: Unter `setup-guide/` und `help/` gibt es keinen `codex`-Ordner mehr.
 
 ---
 
@@ -255,11 +260,11 @@ Super, du bist eingerichtet. Freu dich aufs Training!
 
 In deinem `~/aipm`-Ordner findest du:
 - `help/`–Hilfsdateien zu Markdown, Obsidian und Claude Code
-- `leihsdir/`–Beispieldaten für Übungen
+- `leihsdir/`, `produkt2/`, `produkt3/` -- drei getrennte Produktkontexte für die Übungen
 
 Schau gerne auch schonmal in Obsidian die Dateien im `help/` Ordner an, um etwas besser zu verstehen, was du gerade eingerichtet hast:
-1. [Obsidian Basics](../help/obsidian-basics.md)
-2. [Markdown Basics](../help/markdown-basics.md)
-3. [Claude Code Basics](../help/claudecode-basics.md)
+1. [Obsidian Basics](../../help/obsidian-basics.md)
+2. [Markdown Basics](../../help/markdown-basics.md)
+3. [Claude Code Basics](../../help/claude/claudecode-basics.md)
 
 Bei Fragen melde dich gerne vor dem Training.

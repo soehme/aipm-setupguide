@@ -1,6 +1,6 @@
 # Kommandozeilen-Basics
 
-Die Kommandozeile (Terminal auf Mac, PowerShell auf Windows) ist ein Textfenster, in dem du Befehle eingibst statt auf Symbole zu klicken. Claude Code und viele andere Werkzeuge laufen hier.
+Die Kommandozeile (Terminal auf Mac, PowerShell auf Windows) ist ein Textfenster, in dem du Befehle eingibst statt auf Symbole zu klicken. Dein KI-Assistent -- Claude Code oder Codex -- und viele andere Werkzeuge laufen hier.
 
 > **Gut zu wissen:** PowerShell versteht die meisten Unix-Befehle (`ls`, `cd`, `pwd`, `cat`, ...) als Aliase. Die Beispiele hier funktionieren deshalb auf beiden Plattformen -- Unterschiede sind markiert.
 
@@ -53,7 +53,7 @@ ls
 # help/  leihsdir/  setup-guide.md  ...
 
 ls help
-# claudecode-basics.md  markdown-basics.md  obsidian-basics.md  ...
+# claude/  codex/  markdown-basics.md  obsidian-basics.md  ...
 
 ls leihsdir
 # leihsdir-context.md
@@ -175,9 +175,9 @@ Der Punkt `.` steht für "aktueller Ordner".
 
 ---
 
-## Befehle, die Claude Code häufig ausführt
+## Befehle, die dein KI-Assistent häufig ausführt
 
-Wenn Claude Code einen Terminal-Befehl ausführen will, siehst du eine Genehmigungsabfrage. Hier die Befehle, die dabei am häufigsten vorkommen -- damit du einschätzen kannst, was passiert.
+Wenn Claude Code oder Codex einen Terminal-Befehl ausführen will, bekommst du das mit -- Claude Code fragt vorher, Codex je nach eingestelltem Modus. Hier die Befehle, die dabei am häufigsten vorkommen, damit du einschätzen kannst, was passiert.
 
 ### Suchen und Finden
 
@@ -227,7 +227,7 @@ wc -l ~/aipm/help/markdown-basics.md
 
 ### Git-Befehle
 
-Claude Code nutzt Git, um den Zustand deiner Dateien zu verstehen.
+Claude Code und Codex nutzen Git, um den Zustand deiner Dateien zu verstehen.
 
 | Befehl | Beschreibung |
 |--------|-------------|
@@ -237,7 +237,7 @@ Claude Code nutzt Git, um den Zustand deiner Dateien zu verstehen.
 | `git add Datei` | Datei für den nächsten Commit vormerken |
 | `git commit -m "Text"` | Änderungen speichern mit Beschreibung |
 
-> **Tipp:** Du musst Git nicht selbst beherrschen. Es reicht zu wissen, dass diese Befehle nur lesend sind (`status`, `diff`, `log`) oder Änderungen speichern (`add`, `commit`). Claude erklärt dir, was es vorhat.
+> **Tipp:** Du musst Git nicht selbst beherrschen. Es reicht zu wissen, dass diese Befehle nur lesend sind (`status`, `diff`, `log`) oder Änderungen speichern (`add`, `commit`). Dein KI-Assistent erklärt dir, was er vorhat.
 
 ---
 

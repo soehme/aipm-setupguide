@@ -1,0 +1,5 @@
+/* Zeigt die Dateiendung .md im Dateibrowser an. */
+.nav-file-title-content::after {
+  content: ".md";
+  opacity: 0.5;
+}

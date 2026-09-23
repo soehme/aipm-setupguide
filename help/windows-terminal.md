@@ -2,7 +2,7 @@
 
 ## Was ist PowerShell?
 
-PowerShell ist die Kommandozeile von Windows -- ein Textfenster, in dem du Befehle eingibst, statt auf Symbole zu klicken. Claude Code läuft hier.
+PowerShell ist die Kommandozeile von Windows -- ein Textfenster, in dem du Befehle eingibst, statt auf Symbole zu klicken. Dein KI-Assistent (Claude Code oder Codex) läuft hier.
 
 ## PowerShell starten
 
@@ -34,7 +34,7 @@ PowerShell ist die Kommandozeile von Windows -- ein Textfenster, in dem du Befeh
 ```
 cd ~/aipm          # in deinen Arbeitsordner wechseln
 ls                 # prüfen, was darin liegt
-claude             # Claude Code starten
+claude             # Claude Code starten (bzw. codex für Codex)
 ```
 
 > **Hinweis:** Wenn ein Befehl nicht funktioniert, prüfe zuerst mit `pwd`, ob du im richtigen Ordner bist.

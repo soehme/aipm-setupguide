@@ -1,1 +1,9 @@
 .claude/settings.local.json
+.DS_Store
+
+# Obsidian legt beim Öffnen des Vaults eigene Dateien an -- nur die
+# vorkonfigurierten Einstellungen gehören ins Repo.
+.obsidian/*
+!.obsidian/app.json
+!.obsidian/appearance.json
+!.obsidian/snippets/
