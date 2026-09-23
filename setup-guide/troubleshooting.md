@@ -160,7 +160,7 @@ Der `aipm`-Ordner bringt vier Obsidian-Einstellungen schon mit (sie stehen in `.
 
 ## Versteckte Ordner fehlen nach ZIP-Download
 
-Beim Entpacken einer ZIP-Datei lässt Windows Ordner, die mit einem Punkt beginnen, manchmal weg. Dann fehlen `.obsidian` (die vorbereiteten Einstellungen) und `help/.versteckterOrdner` (der Testordner aus dem Setup).
+Beim Entpacken einer ZIP-Datei lässt Windows Ordner, die mit einem Punkt beginnen, manchmal weg. Dann fehlen `.obsidian` (die vorbereiteten Einstellungen) und `.versteckterOrdner` (der Testordner aus dem Setup).
 
 Sauberste Lösung: das Repository stattdessen mit `git clone` holen (siehe oben). Alternativ im Explorer unter **Ansicht → Einblenden → Ausgeblendete Elemente** aktivieren und die fehlenden Ordner aus dem entpackten Archiv nachkopieren.
 

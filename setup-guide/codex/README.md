@@ -8,6 +8,8 @@ Plane ca. 30 Minuten ein.
 
 Am Ende hast du Obsidian mit drei Bereichen vor dir: links der Dateibrowser mit deinen Dateien, in der Mitte der Editor, rechts ein Terminal, in dem Codex läuft.
 
+![Obsidian mit Dateibrowser links, Editor in der Mitte und Codex im Terminal rechts](../attachments/obsidian-mit-codex-ziel.png)
+
 ---
 
 ## Schritt 1: Ordner anlegen & Demo-Dateien holen
@@ -95,19 +97,21 @@ codex login status
 
 ### Test: Funktioniert alles?
 
-Wechsle in den `aipm`-Ordner und starte Codex:
+Wechsle in den Ordner `leihsdir` und starte Codex dort:
 
 **Mac (Terminal):**
 ```
-cd ~/aipm
+cd ~/aipm/leihsdir
 codex
 ```
 
 **Windows (PowerShell):**
 ```
-cd $HOME\aipm
+cd $HOME\aipm\leihsdir
 codex
 ```
+
+> **"Do you trust the files in this folder?"** Diese Frage kommt beim ersten Start in einem neuen Ordner. Antworte mit **Ja** -- es ist dein eigener Ordner mit den Trainingsdateien.
 
 Tippe dann:
 ```
@@ -159,7 +163,7 @@ Ein paar Einstellungen bringt der `aipm`-Ordner bereits mit -- sie gelten automa
 ### Oberfläche einrichten
 
 - **Linke Sidebar:** Klicke auf das Ordner-Symbol oben links, um den Dateibrowser zu sehen. Hier siehst du alle Dateien in deinem Vault.
-- **Rechte Sidebar:** Schließe sie mit Klick auf den Pfeil, um mehr Platz zu haben.
+- **Rechte Sidebar:** Falls rechts eine Sidebar offen ist, schließe sie mit Klick auf den Pfeil -- das gibt mehr Platz.
 
 So sollte Obsidian danach aussehen:
 
@@ -179,24 +183,29 @@ So sollte Obsidian danach aussehen:
 
 ### Community Plugins aktivieren
 
-1. Öffne Einstellungen (`Cmd+,`)
-2. Gehe zu **Community Plugins**
-3. Klicke **"Turn on community plugins"**
+1. Öffne Einstellungen (`Cmd+,` bzw. `Ctrl+,`)
+2. Gehe in der linken Seitenleiste zu **Community plugins**
+3. Klicke auf **"Exit restricted mode"** -- Obsidian startet im eingeschränkten Modus und lässt erst danach fremde Plugins zu
 
 ### Plugin 1: Terminal
 
 Damit kannst du ein Terminal direkt in Obsidian öffnen -- dort läuft dann Codex.
 
-1. In Community Plugins auf **"Browse"** klicken
+1. Bei Community plugins auf **"Browse"** klicken
 2. Nach **"Terminal"** suchen
 3. **"Install"** und dann **"Enable"** klicken
-4. Verlasse diesen Dialog der Community Plugins
-5. Öffne die Einstellungen von Terminal (unter Community Plugins -> Terminal -> Zahnrad-Symbol)
-6. Setze "New instance behaviour" auf "New vertical split"
-7. Setze "Default Profile" auf das passende integrierte Profil für dein Betriebssystem:
+4. Schließe den Browse-Dialog
+
+Jetzt die Einstellungen des Plugins. Sie stehen nicht mehr im Plugin-Dialog, sondern in den Obsidian-Einstellungen selbst:
+
+5. Scrolle in der **linken Seitenleiste der Einstellungen ganz nach unten**. Unter der Überschrift **"Community plugins"** sind deine installierten Plugins gelistet -- klicke auf **Terminal**
+6. **Ganz oben** steht **"Default profile"**. Wähle das integrierte Profil für dein Betriebssystem:
    - **Mac:** `darwinIntegratedDefault`
    - **Windows:** `win32IntegratedDefault`
    - **Linux:** `linuxIntegratedDefault`
+7. Scrolle weiter nach unten bis zum Abschnitt **"Instancing"**. Dort steht **"New instance behaviour"** -- setze es auf **"New vertical split"**
+
+> **Tipp:** "New instance behaviour" liegt ziemlich weit unten, deutlich hinter Farb- und Tastatureinstellungen. Wenn du es nicht findest, suche auf der Seite nach "Instancing".
 
 ### Plugin 2: Show Hidden Files
 
@@ -217,9 +226,9 @@ Dieses Plugin zeigt versteckte Dateien und Ordner (die mit `.` beginnen) im Date
 Prüfe, ob alle Komponenten funktionieren:
 
 - **Obsidian:** Zeigt deinen `~/aipm` Vault mit allen Dateien an
-- **Versteckte Dateien:** Der Ordner `.versteckterOrdner` ist unter `help/` sichtbar
+- **Versteckte Dateien:** Der Ordner `.versteckterOrdner` erscheint links im Dateibrowser, direkt im Hauptverzeichnis
 - **Terminal Plugin:** Lässt sich in Obsidian öffnen (Command Palette: `Cmd+P` (Mac) bzw. `Ctrl+P` (Windows), dann "Terminal default")
-- **Codex:** Starte `codex` im Terminal und stelle eine Testfrage ("Was ist 2 + 2?")
+- **Codex:** Im Terminal `cd ~/aipm/leihsdir` (Windows: `cd $HOME\aipm\leihsdir`), dann `codex` starten und eine Testfrage stellen ("Was ist 2 + 2?")
 - **Diagnose:** `codex doctor` läuft durch und meldet keine roten Punkte
 
 > **Berechtigungen kommen im Training.** Codex entscheidet über einen Sandbox-Modus, wie viel es darf -- lesen, im Arbeitsordner schreiben oder alles. Das stellen wir gemeinsam ein, du musst dich vorher nicht darum kümmern. Wer trotzdem schon reinschauen will: [Codex Basics](../../help/codex/codex-basics.md).
@@ -232,9 +241,11 @@ Gibt es noch Fehler? Schau in [troubleshooting.md](../troubleshooting.md) (git, 
 
 ## Schritt 6: Aufräumen
 
-Zum Abschluss räumen wir zwei Dinge weg.
+Zum Abschluss räumen wir drei Dinge weg.
 
-**Die Git-Verbindung.** Damit wird `~/aipm` ein normaler Arbeitsordner und niemand überschreibt versehentlich mit `git pull` eigene Änderungen.
+**Die Git-Verbindung.** Damit wird `~/aipm` ein normaler Arbeitsordner und niemand überschreibt versehentlich mit `git pull` eigene Änderungen. Die `.gitignore` kann dann auch weg.
+
+**Den Testordner.** `.versteckterOrdner` hat nur gezeigt, dass das Plugin "Show Hidden Files" funktioniert.
 
 **Die Claude-Code-Dateien.** Dieses Repository enthält Anleitungen für zwei Werkzeuge: Codex und Claude Code. Du arbeitest mit Codex, also kommen die Claude-Dateien weg -- sonst stehen sie im Dateibrowser herum und stiften Verwirrung.
 
@@ -242,12 +253,12 @@ Zum Abschluss räumen wir zwei Dinge weg.
 
 **Mac/Linux (Terminal):**
 ```
-rm -rf ~/aipm/.git ~/aipm/.claude ~/aipm/setup-guide/claude ~/aipm/help/claude
+rm -rf ~/aipm/.git ~/aipm/.gitignore ~/aipm/.versteckterOrdner ~/aipm/.claude ~/aipm/leihsdir/.claude ~/aipm/setup-guide/claude ~/aipm/help/claude
 ```
 
 **Windows (PowerShell):**
 ```
-Remove-Item -Recurse -Force $HOME\aipm\.git, $HOME\aipm\.claude, $HOME\aipm\setup-guide\claude, $HOME\aipm\help\claude
+Remove-Item -Recurse -Force $HOME\aipm\.git, $HOME\aipm\.gitignore, $HOME\aipm\.versteckterOrdner, $HOME\aipm\.claude, $HOME\aipm\leihsdir\.claude, $HOME\aipm\setup-guide\claude, $HOME\aipm\help\claude
 ```
 
 ### Test: Alles weg?
@@ -261,7 +272,7 @@ git status
 
 Du solltest eine Fehlermeldung wie `"fatal: not a git repository"` sehen. Das ist gewünscht -- `~/aipm` ist jetzt ein normaler Arbeitsordner.
 
-Schau außerdem in Obsidian in den Dateibrowser: Unter `setup-guide/` und `help/` gibt es keinen `claude`-Ordner mehr.
+Schau außerdem in Obsidian in den Dateibrowser: Unter `setup-guide/` und `help/` gibt es keinen `claude`-Ordner mehr, und `.versteckterOrdner` ist verschwunden.
 
 ---
 
@@ -269,9 +280,12 @@ Schau außerdem in Obsidian in den Dateibrowser: Unter `setup-guide/` und `help/
 
 Super, du bist eingerichtet. Freu dich aufs Training!
 
+![Obsidian mit Dateibrowser, Editor und Codex im Terminal -- so sieht die fertige Arbeitsumgebung aus](../attachments/obsidian-mit-codex-erfolgreich-eingerichtet.png)
+
 In deinem `~/aipm`-Ordner findest du:
 - `help/` -- Hilfsdateien zu Markdown, Obsidian und Codex
-- `leihsdir/`, `produkt2/`, `produkt3/` -- drei getrennte Produktkontexte für die Übungen
+- `leihsdir/` -- die Case Study für die Übungen
+- `produkt2/` und `produkt3/` -- Platzhalter für deine eigenen Themen
 
 Schau gerne auch schonmal in Obsidian die Dateien im `help/` Ordner an, um etwas besser zu verstehen, was du gerade eingerichtet hast:
 1. [Obsidian Basics](../../help/obsidian-basics.md)

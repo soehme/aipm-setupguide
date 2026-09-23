@@ -6,7 +6,9 @@ Plane ca. 30 Minuten ein.
 
 > **Nutzt ihr Codex statt Claude Code?** Dann nimm den [Setup Guide für Codex](../codex/README.md). Welches Werkzeug bei euch gilt, sagt dir dein Admin.
 
-![Die fertig eingerichtete Arbeitsumgebung: Obsidian mit Dateibrowser und Claude Code im Terminal](../attachments/eingerichtete_arbeitsumgebung.png)
+Am Ende hast du Obsidian mit drei Bereichen vor dir: links der Dateibrowser mit deinen Dateien, in der Mitte der Editor, rechts ein Terminal, in dem Claude Code läuft.
+
+![Obsidian mit Dateibrowser links, Editor in der Mitte und Claude Code im Terminal rechts](../attachments/obsidian-mit-claude-ziel.png)
 
 ---
 
@@ -87,19 +89,21 @@ Claude Code braucht einen Zugang zu Anthropic. Beim ersten Start führt Claude C
 
 ### Test: Funktioniert alles?
 
-Wechsle in den `aipm`-Ordner und starte Claude Code:
+Wechsle in den Ordner `leihsdir` und starte Claude Code dort:
 
 **Mac (Terminal):**
 ```
-cd ~/aipm
+cd ~/aipm/leihsdir
 claude
 ```
 
 **Windows (PowerShell):**
 ```
-cd $HOME\aipm
+cd $HOME\aipm\leihsdir
 claude
 ```
+
+> **"Do you trust the files in this folder?"** Diese Frage kommt beim ersten Start in einem neuen Ordner. Antworte mit **Ja** -- es ist dein eigener Ordner mit den Trainingsdateien.
 
 Tippe dann:
 ```
@@ -108,7 +112,7 @@ Was ist 2 + 2?
 
 Wenn du eine Antwort bekommst, ist alles eingerichtet. Beende mit `/exit`.
 
-> **Warum im `aipm`-Ordner starten?** Dieser Ordner enthält eine Einstellung, die Claude Code anweist, dich vor jeder Aktion (Datei ändern, Befehl ausführen) um Erlaubnis zu fragen. So siehst du im Training genau, was Claude gerade tut, bevor es passiert. Mehr dazu in [Claude Code Basics](../../help/claude/claudecode-basics.md#permission-mode-erlaubnis-fragen).
+> **Warum in `leihsdir` starten?** In diesem Ordner liegt eine Einstellung, die Claude Code anweist, dich vor jeder Aktion (Datei ändern, Befehl ausführen) um Erlaubnis zu fragen. So siehst du im Training genau, was Claude gerade tut, bevor es passiert. Mehr dazu in [Claude Code Basics](../../help/claude/claudecode-basics.md#permission-mode-erlaubnis-fragen).
 
 ---
 
@@ -151,7 +155,7 @@ Ein paar Einstellungen bringt der `aipm`-Ordner bereits mit -- sie gelten automa
 ### Oberfläche einrichten
 
 - **Linke Sidebar:** Klicke auf das Ordner-Symbol oben links, um den Dateibrowser zu sehen. Hier siehst du alle Dateien in deinem Vault.
-- **Rechte Sidebar:** Schließe sie mit Klick auf den Pfeil, um mehr Platz zu haben.
+- **Rechte Sidebar:** Falls rechts eine Sidebar offen ist, schließe sie mit Klick auf den Pfeil -- das gibt mehr Platz.
 
 So sollte Obsidian danach aussehen:
 
@@ -171,24 +175,29 @@ So sollte Obsidian danach aussehen:
 
 ### Community Plugins aktivieren
 
-1. Öffne Einstellungen (`Cmd+,`)
-2. Gehe zu **Community Plugins**
-3. Klicke **"Turn on community plugins"**
+1. Öffne Einstellungen (`Cmd+,` bzw. `Ctrl+,`)
+2. Gehe in der linken Seitenleiste zu **Community plugins**
+3. Klicke auf **"Exit restricted mode"** -- Obsidian startet im eingeschränkten Modus und lässt erst danach fremde Plugins zu
 
 ### Plugin 1: Terminal
 
 Damit kannst du ein Terminal direkt in Obsidian öffnen -- dort läuft dann Claude Code.
 
-1. In Community Plugins auf **"Browse"** klicken
+1. Bei Community plugins auf **"Browse"** klicken
 2. Nach **"Terminal"** suchen
 3. **"Install"** und dann **"Enable"** klicken
-4. Verlasse diesen Dialog der Community Plugins
-5. Öffne die Einstellungen von Terminal (unter Community Plugins -> Terminal -> Zahnrad-Symbol)
-6. Setze "New instance behaviour" auf "New vertical split"
-7. Setze "Default Profile" auf das passende integrierte Profil für dein Betriebssystem:
+4. Schließe den Browse-Dialog
+
+Jetzt die Einstellungen des Plugins. Sie stehen nicht mehr im Plugin-Dialog, sondern in den Obsidian-Einstellungen selbst:
+
+5. Scrolle in der **linken Seitenleiste der Einstellungen ganz nach unten**. Unter der Überschrift **"Community plugins"** sind deine installierten Plugins gelistet -- klicke auf **Terminal**
+6. **Ganz oben** steht **"Default profile"**. Wähle das integrierte Profil für dein Betriebssystem:
    - **Mac:** `darwinIntegratedDefault`
    - **Windows:** `win32IntegratedDefault`
    - **Linux:** `linuxIntegratedDefault`
+7. Scrolle weiter nach unten bis zum Abschnitt **"Instancing"**. Dort steht **"New instance behaviour"** -- setze es auf **"New vertical split"**
+
+> **Tipp:** "New instance behaviour" liegt ziemlich weit unten, deutlich hinter Farb- und Tastatureinstellungen. Wenn du es nicht findest, suche auf der Seite nach "Instancing".
 
 ### Plugin 2: Show Hidden Files
 
@@ -209,9 +218,9 @@ Dieses Plugin zeigt versteckte Dateien und Ordner (die mit `.` beginnen) im Date
 Prüfe, ob alle Komponenten funktionieren:
 
 - **Obsidian:** Zeigt deinen `~/aipm` Vault mit allen Dateien an
-- **Versteckte Dateien:** Der Ordner `.versteckterOrdner` ist unter `help/` sichtbar
+- **Versteckte Dateien:** Der Ordner `.versteckterOrdner` erscheint links im Dateibrowser, direkt im Hauptverzeichnis
 - **Terminal Plugin:** Lässt sich in Obsidian öffnen (Command Palette: `Cmd+P` (Mac) bzw. `Ctrl+P` (Windows), dann "Terminal default")
-- **Claude Code:** Starte `claude` im Terminal und stelle eine Testfrage ("was ist 2+2?")
+- **Claude Code:** Im Terminal `cd ~/aipm/leihsdir` (Windows: `cd $HOME\aipm\leihsdir`), dann `claude` starten und eine Testfrage stellen ("Was ist 2 + 2?")
 
 Gibt es noch Fehler? Schau in [troubleshooting.md](../troubleshooting.md) (git, Node.js, Terminal-Plugin) oder in [troubleshooting.md für Claude Code](troubleshooting.md) -- oder melde dich bei mir!
 
@@ -221,9 +230,11 @@ Gibt es noch Fehler? Schau in [troubleshooting.md](../troubleshooting.md) (git, 
 
 ## Schritt 6: Aufräumen
 
-Zum Abschluss räumen wir zwei Dinge weg.
+Zum Abschluss räumen wir drei Dinge weg.
 
-**Die Git-Verbindung.** Damit wird `~/aipm` ein normaler Arbeitsordner und niemand überschreibt versehentlich mit `git pull` eigene Änderungen.
+**Die Git-Verbindung.** Damit wird `~/aipm` ein normaler Arbeitsordner und niemand überschreibt versehentlich mit `git pull` eigene Änderungen. Die `.gitignore` kann dann auch weg.
+
+**Den Testordner.** `.versteckterOrdner` hat nur gezeigt, dass das Plugin "Show Hidden Files" funktioniert.
 
 **Die Codex-Dateien.** Dieses Repository enthält Anleitungen für zwei Werkzeuge: Claude Code und Codex. Du arbeitest mit Claude Code, also kommen die Codex-Dateien weg -- sonst stehen sie im Dateibrowser herum und stiften Verwirrung.
 
@@ -231,12 +242,12 @@ Zum Abschluss räumen wir zwei Dinge weg.
 
 **Mac/Linux (Terminal):**
 ```
-rm -rf ~/aipm/.git ~/aipm/setup-guide/codex ~/aipm/help/codex
+rm -rf ~/aipm/.git ~/aipm/.gitignore ~/aipm/.versteckterOrdner ~/aipm/setup-guide/codex ~/aipm/help/codex
 ```
 
 **Windows (PowerShell):**
 ```
-Remove-Item -Recurse -Force $HOME\aipm\.git, $HOME\aipm\setup-guide\codex, $HOME\aipm\help\codex
+Remove-Item -Recurse -Force $HOME\aipm\.git, $HOME\aipm\.gitignore, $HOME\aipm\.versteckterOrdner, $HOME\aipm\setup-guide\codex, $HOME\aipm\help\codex
 ```
 
 ### Test: Alles weg?
@@ -250,7 +261,7 @@ git status
 
 Du solltest eine Fehlermeldung wie `"fatal: not a git repository"` sehen. Das ist gewünscht -- `~/aipm` ist jetzt ein normaler Arbeitsordner.
 
-Schau außerdem in Obsidian in den Dateibrowser: Unter `setup-guide/` und `help/` gibt es keinen `codex`-Ordner mehr.
+Schau außerdem in Obsidian in den Dateibrowser: Unter `setup-guide/` und `help/` gibt es keinen `codex`-Ordner mehr, und `.versteckterOrdner` ist verschwunden.
 
 ---
 
@@ -258,9 +269,12 @@ Schau außerdem in Obsidian in den Dateibrowser: Unter `setup-guide/` und `help/
 
 Super, du bist eingerichtet. Freu dich aufs Training!
 
+![Obsidian mit Dateibrowser, Editor und Claude Code im Terminal -- so sieht die fertige Arbeitsumgebung aus](../attachments/obsidian-mit-claude-erfolgreich-eingerichtet.png)
+
 In deinem `~/aipm`-Ordner findest du:
-- `help/`–Hilfsdateien zu Markdown, Obsidian und Claude Code
-- `leihsdir/`, `produkt2/`, `produkt3/` -- drei getrennte Produktkontexte für die Übungen
+- `help/` -- Hilfsdateien zu Markdown, Obsidian und Claude Code
+- `leihsdir/` -- die Case Study für die Übungen
+- `produkt2/` und `produkt3/` -- Platzhalter für deine eigenen Themen
 
 Schau gerne auch schonmal in Obsidian die Dateien im `help/` Ordner an, um etwas besser zu verstehen, was du gerade eingerichtet hast:
 1. [Obsidian Basics](../../help/obsidian-basics.md)

@@ -1,7 +1,7 @@
-# Produkt 3: BelegBlitz
+# Produkt 3
 
-Dieser Ordner enthält den Kontext zu einem dritten Produkt.
+Platzhalter für dein eigenes Thema -- ein zweites Produkt, eine Initiative, ein Projekt, ein Kunde.
 
-Er liegt bewusst getrennt von `leihsdir/` und `produkt2/`: Jedes Produkt hat eigene Nutzer, eigene Ziele und eigenes Vokabular. Vermischt man die Ordner, vermischt der KI-Assistent die Produkte -- und schlägt für BelegBlitz plötzlich Funktionen aus der Verleih-App vor.
+Der Ordner liegt bewusst getrennt neben `leihsdir/`: Jedes Thema hat eigene Nutzer, Ziele und Begriffe. Wirfst du alles in einen Ordner, vermischt der KI-Assistent die Themen -- und schlägt für dein Produkt plötzlich Funktionen aus der Verleih-App vor.
 
-Wenn du mit dem Assistenten an einem Produkt arbeitest, verweise gezielt auf dessen Ordner.
+Leg hier ab, woran du wirklich arbeitest. Im Training schauen wir uns an, wie du dem Assistenten gezielt den passenden Kontext gibst.

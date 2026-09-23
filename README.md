@@ -4,9 +4,9 @@ Willkommen! Dieses Repository hilft dir, eine erste Arbeitsumgebung für das AIP
 
 ## So sieht deine Arbeitsumgebung nach dem Setup aus
 
-![Eingerichtete Arbeitsumgebung](setup-guide/attachments/eingerichtete_arbeitsumgebung.png)
+![Eingerichtete Arbeitsumgebung mit wechselnden KI-Assistenten im Terminal](setup-guide/attachments/arbeitsumgebung.gif)
 
-*Obsidian mit drei Bereichen. Links: Dateibrowser, Mitte: Markdown-Editor, Rechts: der KI-Assistent im Terminal.*
+*Obsidian mit drei Bereichen. Links: Dateibrowser, Mitte: Markdown-Editor, Rechts: der KI-Assistent im Terminal. Das Bild wechselt zwischen Claude Code, Codex, OpenCode und Antigravity -- die Oberfläche bleibt dieselbe.*
 
 ---
 
@@ -30,12 +30,12 @@ Beide Anleitungen führen zum selben Ergebnis: Obsidian als Oberfläche, der KI-
 Sobald du alles eingerichtet hast, arbeitest du in Unterordnern dieses Repositories:
 
 - **`leihsdir/`** -- Erste Case Study für das Training (Beispielkontext zur Verleih-App "LeihsDir")
-- **`produkt2/`** und **`produkt3/`** -- zwei weitere Produkte (Schichttausch-Tool, Spesen-App)
+- **`produkt2/`** und **`produkt3/`** -- Platzhalter für deine eigenen Themen: ein zweites Produkt, eine Initiative, ein Projekt, ein Kunde
 - **`help/`** -- Hilfsdateien zu Obsidian, Markdown und deinem KI-Assistenten
 
 Diese Ordner bilden deinen Workspace, in dem du mit dem KI-Assistenten und Obsidian zusammenarbeitest.
 
-Die drei Produktordner liegen bewusst getrennt: Jedes Produkt hat eigene Nutzer, Ziele und Begriffe. Wirfst du sie zusammen, vermischt der Assistent sie auch -- im Training schauen wir uns an, wie man Kontext gezielt gibt und sauber trennt.
+Die Produktordner liegen bewusst getrennt: Jedes Thema hat eigene Nutzer, Ziele und Begriffe. Wirfst du sie zusammen, vermischt der Assistent sie auch -- im Training schauen wir uns an, wie man Kontext gezielt gibt und sauber trennt.
 
 ---
 
