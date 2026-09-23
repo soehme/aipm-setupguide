@@ -6,7 +6,7 @@ Willkommen! Dieses Repository hilft dir, eine erste Arbeitsumgebung für das AIP
 
 ![Eingerichtete Arbeitsumgebung mit wechselnden KI-Assistenten im Terminal](setup-guide/attachments/arbeitsumgebung.gif)
 
-*Obsidian mit drei Bereichen. Links: Dateibrowser, Mitte: Markdown-Editor, Rechts: der KI-Assistent im Terminal. Das Bild wechselt zwischen Claude Code, Codex, OpenCode und Antigravity -- die Oberfläche bleibt dieselbe.*
+*Obsidian mit drei Bereichen. Links: Dateibrowser, Mitte: Markdown-Editor, Rechts: der KI-Assistent im Terminal. Welcher Assistent dort läuft, hängt davon ab, was bei euch installiert ist -- das Bild wechselt zwischen Claude Code, Codex, OpenCode und Antigravity. Die Oberfläche bleibt dieselbe.*
 
 ---
 
