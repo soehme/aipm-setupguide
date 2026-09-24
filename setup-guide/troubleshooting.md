@@ -130,6 +130,50 @@ Obsidian komplett schließen -- im Task-Manager prüfen, dass `Obsidian.exe` nic
 
 ---
 
+## Terminal lässt sich nicht öffnen: "unknown system error -86" (Mac)
+
+Beim Öffnen eines Terminals in Obsidian erscheint:
+
+```
+Error Spawning Terminal
+Error: spawn unknown system error -86
+```
+
+Die -86 ist ein macOS-Fehlercode und heißt `EBADARCH` -- "falscher CPU-Typ". Das Terminal-Plugin startet die Shell nicht direkt, sondern über ein kleines Python-Hilfsprogramm. Steht in den Plugin-Einstellungen ein Python, das nur für Intel-Prozessoren gebaut wurde, kann ein Mac mit Apple-Chip (M1 und neuer) es nicht ausführen.
+
+Das tritt meist nach einem macOS-Upgrade auf: Vorher hat Apples Übersetzungsschicht Rosetta das Intel-Python noch mitgezogen, nach dem Upgrade fehlt sie.
+
+**1. Prüfen, welches Python eingetragen ist:**
+
+Einstellungen (`Cmd+,`) → **Community plugins → Terminal → Profiles** → beim Standard-Profil (meist `darwinIntegratedDefault`) auf das Zahnrad → Feld **Python executable**.
+
+Beginnt der Pfad mit `/usr/local/`, ist es das alte Intel-Python. Richtig ist auf Apple-Chips `/opt/homebrew/`.
+
+Im Terminal (Terminal.app) kannst du es nachsehen:
+
+```
+lipo -archs /usr/local/bin/python3    # x86_64        -> läuft nicht mehr
+lipo -archs /opt/homebrew/bin/python3 # arm64         -> passt
+```
+
+Fehlt `/opt/homebrew/bin/python3`, installiere es mit `brew install python3`.
+
+**2. Pfad korrigieren:**
+
+Im Feld **Python executable** eintragen:
+
+```
+/opt/homebrew/bin/python3
+```
+
+Das nächste Terminal, das du öffnest, nutzt die neue Einstellung.
+
+> Ändere den Pfad in den Obsidian-Einstellungen, nicht direkt in der Datei `.obsidian/plugins/terminal/data.json`. Obsidian hält die Plugin-Einstellungen im Arbeitsspeicher und schreibt sie beim Beenden zurück -- eine Änderung an der Datei bei laufendem Obsidian ist danach wieder weg.
+
+Die Einstellung gilt pro Vault. Wenn du mehrere Vaults nutzt, trage den Pfad in jedem einzeln ein.
+
+---
+
 ## Obsidian-Einstellungen manuell setzen
 
 Der `aipm`-Ordner bringt vier Obsidian-Einstellungen schon mit (sie stehen in `.obsidian/app.json`, `.obsidian/appearance.json` und `.obsidian/snippets/`). Falls sie bei dir nicht greifen -- etwa weil du das Repository als ZIP ohne versteckte Ordner heruntergeladen oder einen anderen Ordner als Vault geöffnet hast -- kannst du sie von Hand setzen.
