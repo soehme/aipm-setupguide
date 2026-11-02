@@ -209,3 +209,18 @@ Beim Entpacken einer ZIP-Datei lässt Windows Ordner, die mit einem Punkt beginn
 Sauberste Lösung: das Repository stattdessen mit `git clone` holen (siehe oben). Alternativ im Explorer unter **Ansicht → Einblenden → Ausgeblendete Elemente** aktivieren und die fehlenden Ordner aus dem entpackten Archiv nachkopieren.
 
 Funktioniert es immer noch nicht? Dann schau in die Troubleshooting-Datei im Ordner deines Tools (`claude/` bzw. `codex/`) -- dort steht für jedes Tool ein Plan B.
+
+---
+
+## Versteckte Ordner in Unterordnern fehlen im Dateibrowser
+
+Das Plugin "Show Hidden Files" zeigt versteckte Ordner nur direkt im Vault-Hauptverzeichnis. Liegt ein versteckter Ordner tiefer, etwa `leihsdir/.claude`, bleibt er im Dateibrowser unsichtbar. Das ist ein bekannter Fehler des Plugins, siehe [Issue #1](https://github.com/witi42/obsidian-show-hidden-files/issues/1). Eine Korrektur ist noch nicht veröffentlicht. Das Nachfolger-Plugin "Unhide" zeigt dasselbe Verhalten.
+
+Der Ordner ist trotzdem da: Dein KI-Assistent greift normal darauf zu, nur Obsidian zeigt ihn nicht an.
+
+**Alternative:** Das Plugin "Nested Hidden Folders" findet versteckte Ordner auf jeder Ebene. Du schaltest jeden Ordner aber einzeln in den Plugin-Einstellungen ein. Eine Option, die alle Ordner automatisch einschaltet, gibt es noch nicht, siehe [Issue #1](https://github.com/mit-bach/nested-hidden-folders/issues/1).
+
+1. Unter **Settings → Community plugins → Browse** nach **"Nested Hidden Folders"** suchen, **"Install"** und **"Enable"** klicken
+2. Die Einstellungen des Plugins öffnen (Zahnrad neben dem Plugin) und den gewünschten Ordner einschalten, zum Beispiel `leihsdir/.claude`. `.git` lässt du aus, der Ordner enthält sehr viele Dateien
+
+Test: Der eingeschaltete Ordner erscheint im Dateibrowser an seiner Stelle im Unterordner.
